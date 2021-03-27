@@ -5,10 +5,14 @@ const http = require("http");
 const PORT = process.env.PORT || 5000;
 
 const router = require("./router");
+corsOptions = {
+  cors: true,
+  origins: ["http://localhost:3000", "http://localhost:5000"],
+};
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, corsOptions);
 
 io.on("connection", (socket) => {
   console.log("having new connection...");
