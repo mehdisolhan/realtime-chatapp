@@ -19,7 +19,6 @@ const io = socketio(server, corsOptions);
 
 io.on("connect", (socket) => {
   socket.on("join", ({ name, room }, callback) => {
-    console.log("join", socket.id);
     const { error, user } = addUser({ id: socket.id, name, room });
 
     if (error) {
@@ -46,11 +45,7 @@ io.on("connect", (socket) => {
   });
 
   socket.on("sendMessage", (message, callback) => {
-    console.log(socket.id);
     const user = getUser(socket.id);
-
-    console.log("user ->", user.name);
-    console.log("message ->", message);
 
     io.to(user.room).emit("message", { user: user.name, text: message });
     io.to(user.room).emit("roomData", {

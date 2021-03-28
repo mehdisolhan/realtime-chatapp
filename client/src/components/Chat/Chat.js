@@ -24,7 +24,6 @@ const Chat = ({ location }) => {
 
     setName(name);
     setRoom(room);
-    // console.log(name, room);
 
     socket.emit("join", { name, room }, () => {});
 
@@ -36,7 +35,6 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     socket.on("message", (message) => {
-      console.log("MESSAGE DONDU");
       setMessages((messages) => [...messages, message]);
     });
     return () => {
@@ -46,13 +44,10 @@ const Chat = ({ location }) => {
 
   const sendMessage = (event) => {
     event.preventDefault();
-    console.log("SEND MESSAGE", message);
     if (message) {
       socket.emit("sendMessage", message, () => setMessage(""));
     }
   };
-
-  //console.log("messages", message, messages);
 
   return (
     <div className="outerContainer">
