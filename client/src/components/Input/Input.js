@@ -14,7 +14,13 @@ const Input = ({ setMessage, sendMessage, message }) => (
         event.key === "Enter" ? sendMessage(event) : null
       }
     />
-    <button className="sendButton" onClick={(e) => sendMessage(e)}>
+    <button
+      className="sendButton"
+      onClick={(e) => {
+        console.log(e);
+        sendMessage(e);
+      }}
+    >
       Send
     </button>
   </form>

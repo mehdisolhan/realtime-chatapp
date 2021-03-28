@@ -36,22 +36,23 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     socket.on("message", (message) => {
-      setMessages([...messages, message]);
+      console.log("MESSAGE DONDU");
+      setMessages((messages) => [...messages, message]);
     });
     return () => {
       socket.off();
     };
-  }, [messages]);
+  }, []);
 
   const sendMessage = (event) => {
     event.preventDefault();
-
+    console.log("SEND MESSAGE", message);
     if (message) {
       socket.emit("sendMessage", message, () => setMessage(""));
     }
   };
 
-  console.log(message, messages);
+  //console.log("messages", message, messages);
 
   return (
     <div className="outerContainer">
@@ -63,14 +64,6 @@ const Chat = ({ location }) => {
           setMessage={setMessage}
           sendMessage={sendMessage}
         />
-
-        {/* <input
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
-          onKeyPress={(event) =>
-            event.key === "Enter" ? setMessage(event) : null
-          }
-        /> */}
       </div>
     </div>
   );
