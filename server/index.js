@@ -37,6 +37,11 @@ io.on("connect", (socket) => {
 
     socket.join(user.room);
 
+    io.to(user.room).emit("roomData", {
+      room: user.room,
+      users: getUsersInRoom(user.room),
+    });
+
     callback();
   });
 
@@ -48,6 +53,10 @@ io.on("connect", (socket) => {
     console.log("message ->", message);
 
     io.to(user.room).emit("message", { user: user.name, text: message });
+    io.to(user.room).emit("roomData", {
+      room: user.name,
+      users: getUsersInRoom(user.room),
+    });
 
     callback();
   });
