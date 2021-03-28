@@ -17,6 +17,15 @@ const io = socketio(server, corsOptions);
 io.on("connection", (socket) => {
   console.log("having new connection...");
 
+  socket.on("join", ({ name, room }, callback) => {
+    console.log(name, room);
+
+    const error = true;
+    if (error) {
+      callback({ error: "error" });
+    }
+  });
+
   socket.on("disconnect", () => {
     console.log("user had left...");
   });
