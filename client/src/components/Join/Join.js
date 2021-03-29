@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Button, Form } from "react-bootstrap";
 
 import "./Join.css";
 
@@ -10,31 +11,36 @@ const Join = () => {
   return (
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
-        <h1 className="heading">Join</h1>
-        <div>
-          <input
-            placeholder="Name"
-            className="joinInput"
-            type="text"
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <input
-            placeholder="Room"
-            className="joinInput"
-            type="text"
-            onChange={(e) => setRoom(e.target.value)}
-          />
-        </div>
-        <Link
-          onClick={(event) => (!name || !room ? event.preventDefault() : null)}
-          to={`/chat?name=${name}&room=${room}`}
-        >
-          <button className="button mt-20" type="submit">
-            Sign In
-          </button>
-        </Link>
+        <h1 className="heading">Join!</h1>
+        <Form>
+          <Form.Group>
+            <Form.Label className="joinLabel">Name</Form.Label>
+            <Form.Control
+              type="text"
+              className="joinInput"
+              size="lg"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <br />
+            <Form.Label className="joinLabel">Room</Form.Label>
+            <Form.Control
+              type="text"
+              className="joinInput"
+              size="lg"
+              onChange={(e) => setRoom(e.target.value)}
+            />
+            <Link
+              onClick={(event) =>
+                !name || !room ? event.preventDefault() : null
+              }
+              to={`/chat?name=${name}&room=${room}`}
+            >
+              <Button variant="success" className="joinButton" type="submit">
+                Sign In
+              </Button>
+            </Link>
+          </Form.Group>
+        </Form>
       </div>
     </div>
   );
