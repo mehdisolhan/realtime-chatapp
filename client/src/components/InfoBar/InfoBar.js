@@ -1,7 +1,7 @@
 import React from "react";
 
-import closeIcon from "../../Icons/closeIcon.png";
-import onlineIcon from "../../Icons/onlineIcon.png";
+import closeIcon from "../../Icons/close.svg";
+import onlineIcon from "../../Icons/online.svg";
 
 import "./InfoBar.css";
 
@@ -14,7 +14,7 @@ const InfoBar = ({ room }) => {
       </div>
       <div className="rightInnerContainer">
         <a href="/">
-          <img src={closeIcon} alt="close" />
+          <img className="closeIcon" src={closeIcon} alt="close" />
         </a>
       </div>
     </div>

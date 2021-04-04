@@ -26,6 +26,12 @@
   margin-bottom: 0px;
 }
 
+.onlineIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5%;
+}
+
 @media (min-width: 320px) and (max-width: 1200px) {
   .textContainer {
     display: none;

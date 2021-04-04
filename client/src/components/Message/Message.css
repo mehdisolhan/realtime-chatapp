@@ -29,9 +29,9 @@
 .sentText {
   display: flex;
   align-items: center;
-  font-family: Helvetica;
   color: #828282;
   letter-spacing: 0.3px;
+  margin-bottom: 0.5rem !important;
 }
 
 .pl-10 {
@@ -59,9 +59,9 @@
 }
 
 .backgroundBlue {
-  background: #2979ff;
+  background: #4084f5;
 }
 
 .backgroundLight {
-  background: #f3f3f3;
+  background: #e4e3e3;
 }

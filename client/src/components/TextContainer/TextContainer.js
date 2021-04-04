@@ -1,6 +1,6 @@
 import React from "react";
 
-import onlineIcon from "../../Icons/onlineIcon.png";
+import onlineIcon from "../../Icons/online.svg";
 
 import "./TextContainer.css";
 
@@ -16,13 +16,17 @@ const TextContainer = ({ users }) => (
     </div>
     {users ? (
       <div>
-        <h1>Şu an online kişiler: </h1>
+        <h1>Currently chatting: </h1>
         <div className="activeContainer">
           <h2>
             {users.map(({ name }) => (
               <div key={name} className="activeItem">
                 {name}
-                <img alt="Online Icon" src={onlineIcon} />
+                <img
+                  className="onlineIcon"
+                  alt="Online Icon"
+                  src={onlineIcon}
+                />
               </div>
             ))}
           </h2>

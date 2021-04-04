@@ -11,7 +11,7 @@ const Join = () => {
   return (
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
-        <h1 className="heading">Join!</h1>
+        <h1 className="heading">Join a Room!</h1>
         <Form>
           <Form.Group>
             <Form.Label className="joinLabel">Name</Form.Label>

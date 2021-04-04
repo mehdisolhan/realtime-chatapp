@@ -1,12 +1,13 @@
 import React from "react";
+import { Button, Form, InputGroup } from "react-bootstrap";
 
 import "./Input.css";
 
 const Input = ({ setMessage, sendMessage, message }) => (
-  <form className="form">
-    <input
-      className="input"
-      type="text"
+  <InputGroup className="input-field">
+    <Form.Control
+      as="textarea"
+      rows={3}
       placeholder="Type a message..."
       value={message}
       onChange={({ target: { value } }) => setMessage(value)}
@@ -14,10 +15,12 @@ const Input = ({ setMessage, sendMessage, message }) => (
         event.key === "Enter" ? sendMessage(event) : null
       }
     />
-    <button className="sendButton" onClick={(e) => sendMessage(e)}>
-      Send
-    </button>
-  </form>
+    <InputGroup.Append>
+      <Button className="input-btn" onClick={(e) => sendMessage(e)}>
+        Send
+      </Button>
+    </InputGroup.Append>
+  </InputGroup>
 );
 
 export default Input;
